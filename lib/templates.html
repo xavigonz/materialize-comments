@@ -1,8 +1,8 @@
 <template name="conversation">
     {{#if currentUser}}
-        <div class="hide-on-small-only">
+        <div>
             <div class="row">
-                <section id="newConversationContent" class="col s6 left z-depth-2" contenteditable="true" style="height: 100px;">
+                <section id="newConversationContent" class="col s6 m12 left z-depth-2" contenteditable="true" style="height: 100px;">
                 </section>
                 <div class="col s12">
                     <a id="conversationSubmit" class="waves-effect waves-light btn left z-depth-2"><i class="mdi-communication-comment"></i></a>
@@ -16,7 +16,7 @@
 </template>
 
 <template name="conversations">
-    <div class="hide-on-small-only">
+    <div>
         <div class="row">
             <h6><b>{{userName}}</b></h6>
             <section id="conversationContent-{{_id}}" class="col s6 left" contenteditable="false">
