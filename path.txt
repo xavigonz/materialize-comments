@@ -1,0 +1,78 @@
+Nesse tutorial vamos ver como escrever um pacote Meteor.
+
+
+Antes de mais nada, o código fonte do pacote de exemplo encontra-se em git@bitbucket.org:allandequeiroz/materialize-comments.git
+
+
+A primeira coisa a se fazer é criar um pacote Meteor, mas antes de fazer isso, vamos criar um diretório para guardar os
+pacotes que iremos escrever, assim fica mais fácil para dizer para nossa aplicação onde estão esses pacotes, antes mesmo
+de disponibilizá-los em packages.meteor.com, no meu caso eu criei o seguinte diretório /Users/allanqueiroz/devtools/allan/estudos-meteor/packages.
+
+Pronto, agora vamos criar o novo pacote
+meteor create --package allandequeiroz:materialize-comments
+
+Uma alternativa interessante é o package-kitchen, talvez você queira dar uma olhada lá quando você for criar o seu próximo
+pacote ;) http://package-kitchen.meteor.com/
+
+Criado a estrutura para o novo pacote, vamos a nossa aplicação. Caso você ainda não tenha criado uma, crie agora
+metedor create minhaaplicacaometeor
+
+Em seguida adicione o pacote de testes na sua nova aplicação.
+meteor add tinytest
+
+O próximo passo é sobrescrever a variável de ambiente PACKAGE_DIRS e apontar para o nosso novo diretódio de pacotes.
+export PACKAGE_DIRS="/Users/allanqueiroz/devtools/allan/estudos-meteor/packages"
+
+Agora a sua aplicação já consegue encontrar o seu novo pacote, então você já pode adicionálo.
+meteor add allandequeiroz:materialize-comments
+
+
+
+Package.js
+
+Agora que nós já criamos toda a base, vamos começar dando uma passada no arquivo Package.js, começando pelo bloco Package.describe.
+http://cl.ly/image/2c0M362k0G1O/Image%202015-05-17%20at%2012.06.39%20PM.png
+
+Name
+Para evitar confusões, coloque o nome completo do seu pacote aqui 'allandequeiroz:materialize-comments'. Caso você não queira,
+esse atributo é opcional, mas aí Meteor vai usar o nome do diretório para setar esse atributo para você, no meu caso por
+exemplo, seria apenas materialize-comments.
+
+Sumamry
+Essa é uma pequena sentença que descreve o seu pacote, deixe para elaborar melhor a idéia no README.me
+
+Version
+Esse talvez seja o mais importantes dos atributos do describe. É através desse atributo que Meteor informa a todos que
+uma nova versão do pacote foi lançada, então não esqueça de alterar a versão quando você fizer mudanças no pacote.
+
+Git
+Esse é o endereço do repositório do pacote. Apesar de opcional, na minha opinião esse atributo deveria ser obrigatório,
+já perdi a conta das vezes que desejei olhar os fontes de alguns pacotes e nada, sem referencia nenhuma, por favor, coloque
+o endereço do repositócio, torne público.
+
+Documentation
+Esse é o link para o arquivo que descreve seu pacote, o arquivo referenciado aqui é relativo ao pacote, ou seja, documentation: 'README.md'
+diz que na raiz do seu projeto existe um arquivo README.md.
+
+
+
+Package.onUse
+
+Essa é a parte do arquivo onde nós definimos as dependências, criamos e exportamos os arquivso que crimos. Sem isso nosso
+pacote é inútil, não funciona, então vamos dar uma olhada nesse bloco.
+
+api.versionsFrom
+Esse atributo diz qual versão dos pacotes core do Meteor você quer usar.
+http://docs.meteor.com/#/full/pack_versions
+
+api.use
+
+
+
+
+
+
+http://themeteorchef.com/recipes/writing-a-package/
+
+quando se escreve um pacote para o mundo real é boa pratica preencher o Package.describe, para evitar aqueles
+pacotes indecifráveis que você encontra todo santo dia no atmosphere.

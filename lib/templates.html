@@ -1,0 +1,64 @@
+<template name="conversation">
+    {{#if currentUser}}
+        <div class="hide-on-small-only">
+            <div class="row">
+                <section id="newConversationContent" class="col s6 left z-depth-2" contenteditable="true" style="height: 100px;">
+                </section>
+                <div class="col s12">
+                    <a id="conversationSubmit" class="waves-effect waves-light btn left z-depth-2"><i class="mdi-communication-comment"></i></a>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+    {{#each getConversations}}
+        {{> conversations}}
+    {{/each}}
+</template>
+
+<template name="conversations">
+    <div class="hide-on-small-only">
+        <div class="row">
+            <h6><b>{{userName}}</b></h6>
+            <section id="conversationContent-{{_id}}" class="col s6 left" contenteditable="false">
+                {{{content}}}
+            </section>
+            <div class="col s12 left">
+                {{#if canEdit}}
+                    <a id="conversationEdit" class="tiny btn-floating waves-effect waves-light z-depth-2">
+                        <i id="conversationEditIcon-{{_id}}" class="mdi-content-create"></i>
+                    </a>
+                    <a id="conversationRemove" class="tiny btn-floating waves-effect waves-light z-depth-2">
+                        <i class="mdi-action-delete"></i>
+                    </a>
+                {{/if}}
+                {{#unless canEdit}}
+                    {{#if currentUser}}
+                        <a id="conversationReply" class="tiny btn-floating waves-effect waves-light z-depth-2">
+                            <i class="mdi-content-reply"></i>
+                        </a>
+                        <div id="divReply-{{_id}}"></div>
+                    {{/if}}
+                {{/unless}}
+                {{#each getReplies}}
+                    <div class="col s11 offset-s1">
+                        {{> conversations}}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+        <br/>
+    </div>
+</template>
+
+<template name="reply">
+    <section id="replyContent" class="col s6 left z-depth-2" contenteditable="true" style="height: 100px;">
+    </section>
+    <div class="col s12">
+        <a id="replySubmit" class="tiny btn-floating waves-effect waves-light z-depth-2">
+            <i class="mdi-communication-comment"></i>
+        </a>
+        <a id="replyCancel" class="tiny btn-floating waves-effect waves-light z-depth-2">
+            <i class="mdi-navigation-cancel"></i>
+        </a>
+    </div>
+</template>
