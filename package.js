@@ -1,6 +1,6 @@
 Package.describe({
   name: 'allandequeiroz:materialize-comments',
-  version: '0.0.2',
+  version: '0.0.5',
   summary: 'A Materialize Comments Package without fussy',
   git: 'https://github.com/allandequeiroz/materialize-comments',
   documentation: 'README.md'
