@@ -19,7 +19,10 @@
     <div>
         <div class="row">
             <h6><b>{{userName}}</b></h6>
-            <section id="conversationContent-{{_id}}" class="col s6 left" contenteditable="false">
+            <div class="col s1 left">
+                {{> avatar userId=userId size="large" shape="circle"}}
+            </div>
+            <section id="conversationContent-{{_id}}" class="col s5 left" contenteditable="false">
                 {{{content}}}
             </section>
             <div class="col s12 left">

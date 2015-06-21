@@ -12,6 +12,7 @@ meteor add allandequeiroz:materialize-comments
 ```javascript
 {{> conversation commentableId=post._id}}
 ```
+For the configuration of the avatars, please refer to https://atmospherejs.com/bengott/avatar.
 
 ## Just one rule
 **Logged out users can't comment.**  
